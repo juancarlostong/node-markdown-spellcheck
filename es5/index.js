@@ -64,4 +64,4 @@ function spellCallback(src, options, callback, done) {
   }), done);
 }
 
-exports.default = { spell: spell, spellFile: spellFile, spellCallback: spellCallback, spellcheck: _spellcheck2.default, generateSummaryReport: _reportGenerator.generateSummaryReport, generateFileReport: _reportGenerator.generateFileReport };
+exports.default = { spell: spell, spellFile: spellFile, spellCallback: spellCallback, spellcheck: _spellcheck2.default, generateSummaryReport: _reportGenerator.generateSummaryReport, generateFileReport: _reportGenerator.generateFileReport, generateFileReport2: _reportGenerator.generateFile2 };

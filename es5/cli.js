@@ -85,6 +85,7 @@ if (!_commander2.default.args.length) {
       var errors = _index2.default.spell(src, options);
       if (errors.length > 0) {
         console.log((0, _reportGenerator.generateFileReport)(filename, { errors: errors, src: src }));
+        console.error((0, _reportGenerator.generateFileReport2)({ errors: errors, src: src }));
         process.exitCode = 1;
       }
       fileProcessed(null, errors);

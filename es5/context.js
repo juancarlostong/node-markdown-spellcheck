@@ -77,8 +77,10 @@ exports.default = {
       lineEnd = lineInfo.column + length + 30;
     }
     var info = lineInfo.line.substring(lineStart, lineInfo.column) + _chalk2.default.red(lineInfo.line.substr(lineInfo.column, length)) + lineInfo.line.substring(lineInfo.column + length, lineEnd);
+    var value = lineInfo.line.substr(lineInfo.column, length)
     return {
       info: info,
+      value: value,
       lineNumber: lineInfo.lineNumber
     };
   }

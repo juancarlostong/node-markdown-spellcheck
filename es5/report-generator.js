@@ -3,6 +3,7 @@
 exports.__esModule = true;
 exports.generateSummaryReport = generateSummaryReport;
 exports.generateFileReport = generateFileReport;
+exports.generateFileReport2 = generateFileReport2;
 
 var _chalk = require('chalk');
 
@@ -46,6 +47,18 @@ function generateFileReport(file, spellingInfo) {
     var lineNumberPadding = Array(10 - lineNumber.length).join(' ');
     var linePrefix = '' + lineNumberPadding + lineNumber + ' |';
     report += linePrefix + ' ' + displayBlock.info + ' \n';
+  }
+  return report;
+}
+
+// Generates a report for the errors found in a single markdown file.
+function generateFileReport2(spellingInfo) {
+  var report = '';
+
+  for (var k = 0; k < spellingInfo.errors.length; k++) {
+    var error = spellingInfo.errors[k];
+    var displayBlock = _context2.default.getBlock(spellingInfo.src, error.index, error.word.length);
+    report += displayBlock.value + '\n';
   }
   return report;
 }

@@ -7,7 +7,7 @@ import chalk from 'chalk';
 import multiFileProcessor from './multi-file-processor';
 import relativeFileProcessor from './relative-file-processor';
 import spellcheck from './spellcheck';
-import { generateSummaryReport, generateFileReport } from './report-generator';
+import { generateSummaryReport, generateFileReport, generateFileReport2 } from './report-generator';
 
 const packageConfig = fs.readFileSync(path.join(__dirname, '../package.json'));
 const buildVersion = JSON.parse(packageConfig).version;
@@ -70,6 +70,7 @@ else {
       const errors = markdownSpellcheck.spell(src, options);
       if (errors.length > 0) {
         console.log(generateFileReport(filename, { errors: errors, src: src }));
+        console.log(generateFileReport2({ errors: errors, src: src }));
         process.exitCode = 1;
       }
       fileProcessed(null, errors);
